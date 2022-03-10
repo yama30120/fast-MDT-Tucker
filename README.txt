@@ -1,7 +1,3 @@
-# fast MDT-Tucker
-
-This code implements fast algorithm for low-rank tensor completion in delay embedded space.
-
 This directory contains the MATLAB code of the proposed method (Fast-MDT-Tucker) as following:
   - data/
   - Function_Fast_MDT_Tucker/
