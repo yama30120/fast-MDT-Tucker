@@ -6,7 +6,7 @@ This directory contains the MATLAB code of the proposed method (Fast-MDT-Tucker)
   - data/
   - Function_Fast_MDT_Tucker/
   - demo.m
-  - README.txt (this file)
+  - README.md (this file)
 
 "data" contains the original and missing Lena images and they are compacted by the "mat" file.
 "Function_Fast_MDT_Tucker" contains the function for the proposed method.
