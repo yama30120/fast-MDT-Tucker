@@ -14,8 +14,8 @@ addpath(function_path);
 % X0 is original data
 % Q is mask data. 0 or 1
 % Xms is missing data. X0 .* Q
-load('./data/airplane_90_missing.mat');
-% load('./data/airplane_95_missing.mat');
+load('./data/image/airplane_90_missing.mat');
+% load('./data/image/airplane_95_missing.mat');
 
 sc = 255;
 T = double(X0) / sc;
