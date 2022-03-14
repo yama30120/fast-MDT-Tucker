@@ -1,5 +1,5 @@
 % demo code for Fast-MDT-Tucker (Proposed method)
-% complete 90% random voxel missing Lena image.
+% complete 90% random voxel missing airplane image.
 % the code shows two figures:
 %   figure1: three images (original, missing, and completed)
 %   figure2: behavior of the cost function and ranks.
@@ -11,9 +11,13 @@ function_path = 'Function_Fast_MDT_Tucker';
 addpath(function_path);
 
 % pre-process
-% load('./data/lena_90_missing.mat');
-load('./data/lena_95_missing.mat');
-sc = 256;
+% X0 is original data
+% Q is mask data. 0 or 1
+% Xms is missing data. X0 .* Q
+load('./data/airplane_90_missing.mat');
+% load('./data/airplane_95_missing.mat');
+
+sc = 255;
 T = double(X0) / sc;
 Tms = double(Xms) / sc;
 Qms = Q;
@@ -62,4 +66,4 @@ fprintf('computing time: %.4f (seconds)\n', computing_time);
 fprintf('PSNR: %.2f\n', psnr(T, Xest));
 fprintf('SSIM: %.4f\n', ssim(T, Xest));
 
-rmpath(function_path);
+% rmpath(function_path);
