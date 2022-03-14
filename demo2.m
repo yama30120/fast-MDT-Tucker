@@ -29,6 +29,7 @@ computing_time = toc;
 
 
 % plotting processing and write result images
+outputDir = './result/mri/';
 figure(1);
 montage(uint8(T*sc), map);
 saveas(gcf, [outputDir 'original.png']);
