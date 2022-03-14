@@ -1,3 +1,4 @@
+function X = fold(Xn, n, Xdims)
 % X = fold(Xn, n, Xdims)
 % this function is converting an unfolding matrix into an original tensor
 %
@@ -8,8 +9,8 @@
 %
 % output:
 % X: a tensor folding Xn of mode n
-function X = fold(Xn, n, Xdims)
-    % N is tensor order of X
+% N is tensor order of X
+
     N = length(Xdims);
     
     X = ipermute(reshape(Xn, [Xdims(n), Xdims(1:n-1), Xdims(n+1:N)]), [n, 1:n-1, n+1:N]);

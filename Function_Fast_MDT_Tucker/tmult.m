@@ -1,3 +1,4 @@
+function [T, T_dim, T_mat] = tmult(X, A, n, X_dim)
 % [T, T_dim, T_mat] = tmult(X, A, n, X_dim)
 % this function is caluculating mode-n procudt of X and A
 %
@@ -11,7 +12,7 @@
 % T: a tensor (X x_n A)
 % T_dim: a dimension of T
 % T_mat: matrix of not folding T
-function [T, T_dim, T_mat] = tmult(X, A, n, X_dim)
+
     if ~ismatrix(A)
         error('A is not a matrix')
     end

@@ -1,3 +1,4 @@
+function Xn = unfold(X, n)
 % Xn = unfold(X, n)
 % this function is mode-n matricization(unfolding) of X
 %
@@ -7,7 +8,7 @@
 %
 % output:
 % Xn: a matrix unfolding a tensor X of mode-n
-function Xn = unfold(X, n)
+
     N = ndims(X);
     perm = [n, 1:n-1, n+1:N];
     Xn = reshape(permute(X, perm), size(X, n), []);
