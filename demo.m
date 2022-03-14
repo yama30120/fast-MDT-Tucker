@@ -7,15 +7,17 @@
 clear all;
 close all;
 
-function_path = 'Function_Fast_MDT_Tucker';
-addpath(function_path);
+functionPath = 'Function_Fast_MDT_Tucker';
+addpath(functionPath);
 
-% pre-process
+% pre-processing
 % X0 is original data
 % Q is mask data. 0 or 1
 % Xms is missing data. X0 .* Q
-load('./data/image/airplane_90_missing.mat');
-% load('./data/image/airplane_95_missing.mat');
+inputDir = './data/image/';
+% inputFilename = 'airplane_90_missing';
+inputFilename = 'airplane_95_missing';
+load([inputDir inputFilename '.mat']);
 
 sc = 255;
 T = double(X0) / sc;
@@ -23,12 +25,17 @@ Tms = double(Xms) / sc;
 Qms = Q;
 tau = [32, 32, 1];
 
-% main process (completion)
+% main processing (completion)
 tic;
 [Xest, F, hist, histR] = completion_fast_mdt_tucker(Tms, Qms, tau);
 computing_time = toc;
 
-% plotting process
+% write result image
+outputDir = './result/image/';
+outputFilename = ['completed_' inputFilename];
+imwrite(uint8(Xest*sc), [outputDir outputFilename '.png']);
+
+% plotting processing
 
 figure(1);
 subplot(1, 3, 1);
@@ -66,4 +73,4 @@ fprintf('computing time: %.4f (seconds)\n', computing_time);
 fprintf('PSNR: %.2f\n', psnr(T, Xest));
 fprintf('SSIM: %.4f\n', ssim(T, Xest));
 
-% rmpath(function_path);
+% rmpath(functionPath);
