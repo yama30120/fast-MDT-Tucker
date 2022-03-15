@@ -24,7 +24,7 @@ sc = 255;
 T = double(X0) / sc;
 Tms = double(Xms) / sc;
 Qms = Q;
-tau = [1, 1, 1];
+tau = [32, 32, 1];
 
 % main processing (completion)
 tic;
