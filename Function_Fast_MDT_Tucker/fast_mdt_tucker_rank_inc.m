@@ -61,7 +61,7 @@ function [X, F, histo, histoR] = fast_mdt_tucker_rank_inc(T,Q,X,F,order,delta,in
     for iter = 1:maxiter
         % Z = Q.*T + Qc.*X;
         Z = T;
-        Z(Q(:)~=1) = X(Q(:)~=1);
+        Z(Q(:)==0) = X(Q(:)==0);
 
         % update F1, F2,..., Fn
         Zfft = ifftn(Z);

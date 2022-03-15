@@ -1,7 +1,7 @@
 % demo code for Fast-MDT-Tucker (Proposed method)
-% complete 90% random voxel missing MRI image.
-% the code shows 4 figures:
-%   figure1: original mri
+% complete 90% random voxel missing video image.
+% the code shows figures:
+%   figure1: original video
 %   figure2: missing mri
 %   figure3: recovered mri
 %   figure4: behavior of the cost function and ranks.
@@ -13,12 +13,13 @@ functionPath = 'Function_Fast_MDT_Tucker';
 addpath(functionPath);
 
 % pre-processing
-load('mri.mat');
+vidObj = VideoReader('shuttle.avi');
+frames = read(vidObj, [1 115]);
 
 missingRate = 0.9; % 90% random missing
-sc = double(max(D(:)));
-Qms = randomMissing(size(D), missingRate);
-T = double(D) / sc;
+sc = 255;
+Qms = randomMissing(size(frames), missingRate);
+T = double(frames) / sc;
 Tms = T .* Qms;
 tau = [8, 8, 1, 4];
 
@@ -29,16 +30,7 @@ computing_time = toc;
 
 
 % plotting processing and write result images
-outputDir = './result/mri/';
-figure(1);
-montage(uint8(T*sc), map);
-saveas(gcf, [outputDir 'original.png']);
-figure(2);
-montage(uint8(Tms*sc), map);
-saveas(gcf, [outputDir 'missing.png']);
-figure(3);
-montage(uint8(Xest*sc), map);
-saveas(gcf, [outputDir 'recovered.png']);
+outputDir = './result/video/';
 
 figure(4);
 subplot(2, 1, 1);
