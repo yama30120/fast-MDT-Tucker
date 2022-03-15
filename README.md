@@ -2,25 +2,31 @@
 
 This code implements fast algorithm for low-rank tensor completion in delay embedded space.
 
-This directory contains the MATLAB code of the proposed method (Fast-MDT-Tucker) as following:
-  - data/
-  - Function_Fast_MDT_Tucker/
-  - demo.m
-  - README.md (this file)
+```data/``` contains the original and missing Lena images and they are compacted by the "mat" file.
+```Function_Fast_MDT_Tucker/``` contains the function for the proposed method.
+completion
 
-"data" contains the original and missing Lena images and they are compacted by the "mat" file.
-"Function_Fast_MDT_Tucker" contains the function for the proposed method.
-"demo.m" is a sample MATLAB code of completing 95% random voxel missing lena image.
+```demo_image.m```, ```demo_mri.m```, ```demo_video.m``` are sample MATLAB codes with fast-MDT-Tucker.
 
 
-## demo
+## Demo results
+demo program results
 ### image
+This result can be obtained by demo_image.m
+- 90% missing airplane image
 ![image_original](./data/image/airplane.png)
 ![image_missing](./data/image/airplane_90_missing.png)
 ![image_recover](./result/image/completed_airplane_90_missing.png)
+- 95% missing airplane image
+![image_original](./data/image/airplane.png)
+![image_missing](./data/image/airplane_95_missing.png)
+![image_recover](./result/image/completed_airplane_95_missing.png)
 ### mri
+original 
 ![mri_original](./result/mri/original.png)
+missing(90%)
 ![mri_original](./result/mri/missing.png)
+recovered
 ![mri_original](./result/mri/recovered.png)
 ### video
 ![hoge](./result/video/result.gif)
