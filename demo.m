@@ -3,6 +3,7 @@
 % the code shows two figures:
 %   figure1: three images (original, missing, and completed)
 %   figure2: behavior of the cost function and ranks.
+% results output in './result/image/' directory.
 
 clear all;
 close all;

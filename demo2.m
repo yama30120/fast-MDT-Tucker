@@ -5,6 +5,7 @@
 %   figure2: missing mri
 %   figure3: recovered mri
 %   figure4: behavior of the cost function and ranks.
+% results outputs in './result/mri/' directory
 
 clear all;
 close all;

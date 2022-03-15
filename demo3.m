@@ -1,10 +1,9 @@
 % demo code for Fast-MDT-Tucker (Proposed method)
 % complete 90% random voxel missing video image.
 % the code shows figures:
-%   figure1: original video
-%   figure2: missing mri
-%   figure3: recovered mri
-%   figure4: behavior of the cost function and ranks.
+%   figure1: original, missing, recovered videos
+%   figure2: behavior of the cost function and ranks.
+% result outputs in './result/video/result.gif'
 
 clear all;
 close all;
@@ -16,13 +15,13 @@ addpath(functionPath);
 vidObj = VideoReader('shuttle.avi');
 frames = read(vidObj, [1 115]);
 frames = frames(1:2:end, 1:2:end, :, :); % down sample 
-
+    
 missingRate = 0.9; % 90% random missing
 sc = 255;
 Qms = randomMissing(size(frames), missingRate);
 T = double(frames) / sc;
 Tms = T .* Qms;
-tau = [8, 8, 1, 8];
+tau = [4 8 1 4];
 
 % main processing (completion)
 tic;
@@ -30,8 +29,25 @@ tic;
 computing_time = toc;
 
 
-% plotting processing and write result images
+% plotting processing and write result videos with gif file
 outputDir = './result/video/';
+for f = 1:size(frames,4)
+    Fs(size(frames,4))=struct('cdata',[],'colormap',[]);
+    h=figure(1);clf;
+    set(h,'position',[0 0 1600 400]);
+    subplot(1, 3, 1);
+    imagesc(T(:,:,:,f));
+    title('Original');
+    subplot(1, 3, 2);
+    imagesc(Tms(:,:,:,f));
+    title('Missing');
+    subplot(1, 3, 3);
+    imagesc(Xest(:,:,:,f));
+    title('Recovered');
+    pause(0.01);
+    Fs(f)=getframe(gcf);
+end
+movie2gif(Fs,[outputDir 'result.gif'],'DelayTime',0.1,'LoopCount',1000);
 
 figure(4);
 subplot(2, 1, 1);
