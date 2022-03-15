@@ -2,7 +2,7 @@
 
 This code implements fast algorithm for low-rank tensor completion in delay embedded space.
 
-```data/``` contains the original and missing Lena images and they are compacted by the "mat" file.
+```data/``` contains the original and missing(90%/95%) airplane images and they are compacted by the "mat" file.
 ```Function_Fast_MDT_Tucker/``` contains the function for the proposed method.
 ```completion_fast_mdt_tucker.m``` is main function.
 
