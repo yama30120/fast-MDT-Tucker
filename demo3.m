@@ -15,13 +15,14 @@ addpath(functionPath);
 % pre-processing
 vidObj = VideoReader('shuttle.avi');
 frames = read(vidObj, [1 115]);
+frames = frames(1:2:end, 1:2:end, :, :); % down sample 
 
 missingRate = 0.9; % 90% random missing
 sc = 255;
 Qms = randomMissing(size(frames), missingRate);
 T = double(frames) / sc;
 Tms = T .* Qms;
-tau = [8, 8, 1, 4];
+tau = [8, 8, 1, 8];
 
 % main processing (completion)
 tic;
