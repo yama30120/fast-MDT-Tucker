@@ -16,8 +16,8 @@ addpath(functionPath);
 % Q is mask data. 0 or 1
 % Xms is missing data. X0 .* Q
 inputDir = './data/image/';
-% inputFilename = 'airplane_90_missing';
-inputFilename = 'airplane_95_missing';
+inputFilename = 'airplane_90_missing';
+% inputFilename = 'airplane_95_missing';
 load([inputDir inputFilename '.mat']);
 
 sc = 255;
