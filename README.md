@@ -4,7 +4,7 @@ This code implements fast algorithm for low-rank tensor completion in delay embe
 
 ```data/``` contains the original and missing Lena images and they are compacted by the "mat" file.
 ```Function_Fast_MDT_Tucker/``` contains the function for the proposed method.
-completion
+```completion_fast_mdt_tucker.m``` is main function.
 
 ```demo_image.m```, ```demo_mri.m```, ```demo_video.m``` are sample MATLAB codes with fast-MDT-Tucker.
 
@@ -25,13 +25,13 @@ This result can be obtained by demo_image.m.
 ### MRI
 This result can be obtained by demo_mri.m.
 
-- original 
+- Original 
 ![mri_original](./result/mri/original.png)
 
-- missing(90%)
+- Missing(90%)
 ![mri_original](./result/mri/missing.png)
 
-- recovered
+- Recovered
 ![mri_original](./result/mri/recovered.png)
 
 ### video
