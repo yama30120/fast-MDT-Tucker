@@ -4,7 +4,7 @@
 %   figure1: original mri
 %   figure2: missing mri
 %   figure3: recovered mri
-%   figure2: behavior of the cost function and ranks.
+%   figure4: behavior of the cost function and ranks.
 
 clear all;
 close all;
