@@ -37,4 +37,5 @@ This result can be obtained by demo_mri.m.
 ### video
 This result can be obtained by demo_video.m.
 
+- Result gif (Original/Missing/Recovered)
 ![hoge](./result/video/result.gif)
