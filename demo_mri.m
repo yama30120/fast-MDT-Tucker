@@ -55,7 +55,7 @@ ylabel('Cost function');
 
 subplot(2, 1, 2);
 plot(histR);
-legend({'1st mode rank', '2nd mode rank', '3rd mode rank', '4th mode rank'}, 'Location', 'northwest');
+legend({'1st mode rank', '3rd mode rank', '5th mode rank', '7th mode rank'}, 'Location', 'northwest');
 xlabel('Iteration');
 ylabel('Rank');
 
